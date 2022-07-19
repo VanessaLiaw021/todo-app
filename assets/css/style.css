@@ -11,7 +11,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: var(--light-black);
     color: white;
     font-family: "Merriweather Sans", sans-serif;
 }
@@ -19,6 +18,11 @@
 /* Element Selectors */
 body { 
     margin: 100px;
+    background-color: var(--light-black);
+}
+
+main {
+    margin: 20px 50px;
 }
 
 /* Start Header Section */
@@ -31,7 +35,7 @@ header h1 {
 
 form {
     text-align: center;
-    margin: 20px 0;
+    margin: 40px 0;
 }
 
 .form-group input {
@@ -56,3 +60,40 @@ form {
     right: 50px;
 }
 /* End Header Section */
+
+/* Start Main Section */
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.list {
+    background-color: white;
+    margin: 10px 30px;
+    border-radius: 8px;
+}
+
+.list li {
+    margin: 10px 20px;
+    width: 200px;
+    padding: 10px;
+    color: black;
+}
+
+.list li p {
+    color: black;
+}
+
+.list .icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list .icons i {
+    color: black;
+    margin: 30px 5px 0 5px;
+}
+/* End Main Section */
