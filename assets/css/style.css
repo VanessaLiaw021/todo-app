@@ -1,0 +1,58 @@
+/* Import fonts from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300;500&display=swap');
+
+/* Root Selectors */
+:root {
+    --light-black: #484848;
+}
+
+/* Universal Selectors */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--light-black);
+    color: white;
+    font-family: "Merriweather Sans", sans-serif;
+}
+
+/* Element Selectors */
+body { 
+    margin: 100px;
+}
+
+/* Start Header Section */
+header h1 {
+    text-align: center;
+    letter-spacing: 5px;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.form-group input {
+    padding: 15px;
+    width: 500px;
+    border-radius: 10px;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    font-weight: 300;
+}
+
+.form-group #add-todo {
+    border: none;
+    cursor: pointer;
+}
+
+.form-group #add-todo i {
+    font-size: 30px;
+    position: relative;
+    top: 8px;
+    right: 50px;
+}
+/* End Header Section */
