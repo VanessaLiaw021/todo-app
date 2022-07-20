@@ -13,18 +13,28 @@ const themeSwitch = $("#theme-switch");
 //When the page load, the document is ready to run the function
 $(document).ready(function() {
 
+    //Get the item from local storage and if not there add it to local storage
+    let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
     //Function to append the todo list 
-    const appendTodo = (todos) => {
+    const appendTodo = (todo) => {
 
         //Create element
-        const todoListItem = $(`<div class="list"><li><p class="list-todo">${todos}</p><div class="icons">
+        const parentElement = $(`<div class="list"></div>`);
+        parentElement.attr("data-name", todo);
+
+        //Create the card for todo list
+        const todoListItem = $(`<li><p class="list-todo">${todo}</p><div class="icons">
             <button class="edit"><i class="fa-solid fa-pen-to-square edit-delete"></i></button>
             <button class="delete"><i class="fa-solid fa-trash-can edit-delete"></i></button>
-            </div></li></div>`
+            </div></li>`
         );
 
         //Append the created element to the ul element
-        ulElement.append(todoListItem);
+        parentElement.append(todoListItem);
+
+        //Append the parentElement of the todo to the ul element
+        ulElement.append(parentElement);
     };
 
     //Function that will display todos from local storage 
@@ -60,24 +70,14 @@ $(document).ready(function() {
             //Store user input in a object
             let storeTodo = { todos: todo };
 
-            //Get the item from local storage and if not there add it to local storage
-            let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-
             //Push the todoList into the object
             todoList.push(storeTodo);
 
             //Set the key and value in local storage
             localStorage.setItem("todoList", JSON.stringify(todoList));
-
+            
             //Clear the input form
             todoInput.val(" ");
-
-            $(".delete").on("click", (event) => {
-
-                const targetTodo = event.target;
-
-                $(".list").localStorage.removeItem(targetTodo);
-            });
         };
     });
 
@@ -105,7 +105,7 @@ $(document).ready(function() {
 
             //Change the hamburger menu color
             $("#hamburger").toggleClass("light");
-        }
+        };
     });
 
     //Event listener that toggle the text switch 
@@ -116,6 +116,6 @@ $(document).ready(function() {
 
             //Change the text color based on user preferences
             $(".list-todo").toggleClass("checked");
-        }
+        };
     });
 });
