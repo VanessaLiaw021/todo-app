@@ -4,6 +4,7 @@
 /* Root Selectors */
 :root {
     --light-black: #484848;
+    --background: linear-gradient(#9795EF, #F9C5D1);
 }
 
 /* Universal Selectors */
@@ -49,15 +50,17 @@ form {
 }
 
 .form-group #add-todo {
-    border: none;
+    all: unset;
     cursor: pointer;
+    position: relative; 
+    top: 8px;
+    right: 50px;
 }
 
 .form-group #add-todo i {
     font-size: 30px;
-    position: relative;
-    top: 8px;
-    right: 50px;
+    color: var(--light-black);
+    height: 30px;
 }
 /* End Header Section */
 
@@ -71,9 +74,15 @@ ul {
 }
 
 .list {
-    background-color: white;
+    background: var(--background);
     margin: 10px 30px;
     border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 4px 4px 4px rgba(255, 182, 193, 0.5);
+}
+
+.list:hover {
+    transform: scale(1.1);
 }
 
 .list li {
@@ -84,7 +93,9 @@ ul {
 }
 
 .list li p {
-    color: black;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 1px;
 }
 
 .list .icons {
@@ -92,8 +103,19 @@ ul {
     justify-content: flex-end;
 }
 
+.list .icons button {
+    all: unset;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
 .list .icons i {
-    color: black;
+    color: white;
     margin: 30px 5px 0 5px;
+}
+
+.list .icons i:hover {
+    color: var(--light-black);
 }
 /* End Main Section */
