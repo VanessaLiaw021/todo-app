@@ -33,19 +33,7 @@ $(document).ready(function() {
         </div></li></div>`);
         
         //Append the created element to ul element
-        ulElement.append(todoListItem);    
-
-        //Create an object to store the todo that will be store in local storage 
-        const storeTodo = { todos: todo };
-
-        //Get item from local storage and if does not exist, add it to the array
-        const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
-
-        //Push the array if not in local storage
-        todoList.push(storeTodo);
-
-        //Set the key and value in local storage
-        localStorage.setItem("todoList", JSON.stringify(todoList));
+        ulElement.append(todoListItem); 
 
         //Event listener to edit todo list
         editButton.on("click", () => {

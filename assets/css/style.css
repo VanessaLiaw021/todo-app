@@ -233,8 +233,8 @@ ul {
     margin: 30px 5px 0 5px;
 }
 
-.list .icons i:hover {
-    color: var(--light-black); 
+.edit-delete.checked {
+    color: black;
 }
 /* End Main Section */
 
