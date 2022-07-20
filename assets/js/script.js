@@ -8,6 +8,7 @@ const editButton = $("#edit");
 const deleteButton = $("#delete");
 const hamburgerIcon = $("#hamburger");
 const toggle = $(".toggle-theme");
+const textSwitch = $("#text-switch");
 
 //When the page load, the document is ready to run the function
 $(document).ready(function() {
@@ -25,9 +26,9 @@ $(document).ready(function() {
         if (!todo) alert("Please enter a task");
 
         //Create element
-        const todoListItem = $(`<div class="list"><li><p id="list-todo">${todo}</p><div class="icons">
-        <button id="edit"><i class="fa-solid fa-pen-to-square"></i></button>
-        <button id="delete"><i class="fa-solid fa-trash-can"></i></button>
+        const todoListItem = $(`<div class="list"><li><p class="list-todo">${todo}</p><div class="icons">
+        <button id="edit"><i class="fa-solid fa-pen-to-square edit-delete"></i></button>
+        <button id="delete"><i class="fa-solid fa-trash-can edit-delete"></i></button>
         </div></li></div>`);
         
         //Append the created element to ul element
@@ -62,4 +63,15 @@ $(document).ready(function() {
         //Toggle between the menu
         $(".toggle-theme").toggleClass("hide");
     }); 
+
+    //Event listener that toggle the text switch 
+    textSwitch.on("click", () => {
+        
+        //Check to see if the switch is checked
+        if ($("this:checked")) {
+
+            //Change the text color based on user preferences
+            $(".list-todo").toggleClass("checked");
+        }
+    });
 });

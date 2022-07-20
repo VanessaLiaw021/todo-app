@@ -200,6 +200,10 @@ ul {
     letter-spacing: 1px;
 }
 
+.list-todo.checked {
+    color: black;
+}
+
 .list .icons {
     display: flex;
     justify-content: flex-end;
