@@ -112,7 +112,7 @@ ul {
 }
 
 .list .icons i:hover {
-    color: var(--light-black);
+    color: var(--light-black); 
 }
 /* End Main Section */
 
