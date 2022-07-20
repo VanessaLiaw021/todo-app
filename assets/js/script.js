@@ -3,7 +3,6 @@ const form = $("form");
 const todoInput = $("#todo-input");
 const addTodoButton = $("#add-todo");
 const ulElement = $("#todo-items");
-const liElement = $(".list");
 const editButton = $("#edit");
 const deleteButton = $("#delete");
 const hamburgerIcon = $("#hamburger");
@@ -58,7 +57,7 @@ $(document).ready(function() {
             //Call the function to append todos 
             appendTodo(todo);
 
-            //Store the todo input in a object
+            //Store user input in a object
             let storeTodo = { todos: todo };
 
             //Get the item from local storage and if not there add it to local storage
@@ -73,15 +72,11 @@ $(document).ready(function() {
             //Clear the input form
             todoInput.val(" ");
 
-            //Event listener to edit todo list
-            $(".edit").on("click", (event) => {
-
-            });
-
-            //Event listener to delete todo list
             $(".delete").on("click", (event) => {
-                
-            
+
+                const targetTodo = event.target;
+
+                $(".list").localStorage.removeItem(targetTodo);
             });
         };
     });
