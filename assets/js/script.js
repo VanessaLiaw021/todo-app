@@ -60,7 +60,7 @@ $(document).ready(function() {
         if (!todo) {
 
             //Display message letting the user need to input content
-            alert("Please enter a task")
+            alert("Please enter a task");
         
         } else {
 
@@ -68,7 +68,7 @@ $(document).ready(function() {
             appendTodo(todo);
 
             //Store user input in a object
-            let storeTodo = { todos: todo };
+            let storeTodo = { id: Date.now(), todos: todo };
 
             //Push the todoList into the object
             todoList.push(storeTodo);
