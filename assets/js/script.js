@@ -9,6 +9,7 @@ const deleteButton = $("#delete");
 const hamburgerIcon = $("#hamburger");
 const toggle = $(".toggle-theme");
 const textSwitch = $("#text-switch");
+const themeSwitch = $("#theme-switch");
 
 //When the page load, the document is ready to run the function
 $(document).ready(function() {
@@ -63,6 +64,23 @@ $(document).ready(function() {
         //Toggle between the menu
         $(".toggle-theme").toggleClass("hide");
     }); 
+
+    //Event Listener that toggle dark and light mode
+    themeSwitch.on("click", () => {
+        
+        //Check to see if the switch is checked
+        if ($("this:checked")) {
+
+            //Change the text color based on user preferences
+            $("body").toggleClass("light");
+
+            //Change the heading color
+            $("header h1").toggleClass("light");
+
+            //Change the hamburger menu color
+            $("#hamburger").toggleClass("light");
+        }
+    });
 
     //Event listener that toggle the text switch 
     textSwitch.on("click", () => {

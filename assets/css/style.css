@@ -22,6 +22,10 @@ body {
     background-color: var(--light-black);
 }
 
+body.light {
+    background-color: white;
+}
+
 main {
     margin: 20px 50px;
 }
@@ -32,6 +36,10 @@ header h1 {
     letter-spacing: 5px;
     text-decoration: underline;
     font-weight: 500;
+}
+
+header h1.light {
+    color: var(--light-black);
 }
 
 .header {
@@ -47,6 +55,10 @@ header h1 {
 
 #hamburger {
     cursor: pointer;
+}
+
+#hamburger.light {
+    color: black;
 }
 
 .toggle-theme {
