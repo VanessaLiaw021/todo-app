@@ -76,8 +76,6 @@ $(document).ready(function() {
             //Event listener to edit todo list
             $(".edit").on("click", (event) => {
 
-                //Target the edit todo 
-                const editTodo = event.target;
             });
 
             //Event listener to delete todo list
