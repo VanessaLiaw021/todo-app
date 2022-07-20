@@ -13,6 +13,30 @@ const themeSwitch = $("#theme-switch");
 
 //When the page load, the document is ready to run the function
 $(document).ready(function() {
+
+    //Function to append the todo list 
+    const appendTodo = (todos) => {
+
+        //Create element
+        const todoListItem = $(`<div class="list"><li><p class="list-todo">${todos}</p><div class="icons">
+            <button class="edit"><i class="fa-solid fa-pen-to-square edit-delete"></i></button>
+            <button class="delete"><i class="fa-solid fa-trash-can edit-delete"></i></button>
+            </div></li></div>`
+        );
+
+        //Append the created element to the ul element
+        ulElement.append(todoListItem);
+    };
+
+    //Function that will display todos from local storage 
+    const displayFromLocalStorage = () => {
+
+        //Get the item from local storage and if not there add it to local storage
+        const todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
+        //Loop through each saved todolist and append it 
+        todoList.forEach(todo => appendTodo(todo.todos));
+    };
     
     //Event listener to add todo to the todo list
     form.on("submit", (event) => {
@@ -23,28 +47,49 @@ $(document).ready(function() {
         //Get the value of user input 
         const todo = todoInput.val().trim();
 
-        //Check to see if the input is empty 
-        if (!todo) alert("Please enter a task");
+        //Check to see if todo is empty, else append the todo 
+        if (!todo) {
 
-        //Create element
-        const todoListItem = $(`<div class="list"><li><p class="list-todo">${todo}</p><div class="icons">
-        <button id="edit"><i class="fa-solid fa-pen-to-square edit-delete"></i></button>
-        <button id="delete"><i class="fa-solid fa-trash-can edit-delete"></i></button>
-        </div></li></div>`);
+            //Display message letting the user need to input content
+            alert("Please enter a task")
         
-        //Append the created element to ul element
-        ulElement.append(todoListItem); 
+        } else {
 
-        //Event listener to edit todo list
-        editButton.on("click", () => {
+            //Call the function to append todos 
+            appendTodo(todo);
 
-        });
+            //Store the todo input in a object
+            let storeTodo = { todos: todo };
 
-        //Event listener to delete todo list
-        deleteButton.on("click", () => {
+            //Get the item from local storage and if not there add it to local storage
+            let todoList = JSON.parse(localStorage.getItem("todoList")) || [];
+
+            //Push the todoList into the object
+            todoList.push(storeTodo);
+
+            //Set the key and value in local storage
+            localStorage.setItem("todoList", JSON.stringify(todoList));
+
+            //Clear the input form
+            todoInput.val(" ");
+
+            //Event listener to edit todo list
+            $(".edit").on("click", (event) => {
+
+                //Target the edit todo 
+                const editTodo = event.target;
+            });
+
+            //Event listener to delete todo list
+            $(".delete").on("click", (event) => {
+                
             
-        });
+            });
+        };
     });
+
+    //Call the function to display todo list from local storage
+    displayFromLocalStorage();
 
     //Event listener that toggle the hamburger icon 
     hamburgerIcon.on("click", () => {

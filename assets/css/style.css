@@ -27,7 +27,7 @@ body.light {
 }
 
 main {
-    margin: 20px 50px;
+    margin: 20px 30px;
 }
 
 /* Start Header Section */
@@ -55,6 +55,7 @@ header h1.light {
 
 #hamburger {
     cursor: pointer;
+    margin-top: 8px;
 }
 
 #hamburger.light {
