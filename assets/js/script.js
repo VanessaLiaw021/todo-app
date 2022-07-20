@@ -6,6 +6,8 @@ const ulElement = $("#todo-items");
 const liElement = $(".list");
 const editButton = $("#edit");
 const deleteButton = $("#delete");
+const hamburgerIcon = $("#hamburger");
+const toggle = $(".toggle-theme");
 
 //When the page load, the document is ready to run the function
 $(document).ready(function() {
@@ -23,7 +25,7 @@ $(document).ready(function() {
         if (!todo) alert("Please enter a task");
 
         //Create element
-        const todoListItem = $(`<div class="list"><li><p>${todo}</p><div class="icons">
+        const todoListItem = $(`<div class="list"><li><p id="list-todo">${todo}</p><div class="icons">
         <button id="edit"><i class="fa-solid fa-pen-to-square"></i></button>
         <button id="delete"><i class="fa-solid fa-trash-can"></i></button>
         </div></li></div>`);
@@ -53,4 +55,11 @@ $(document).ready(function() {
             
         });
     });
+
+    //Event listener that toggle the hamburger icon 
+    hamburgerIcon.on("click", () => {
+
+        //Toggle between the menu
+        $(".toggle-theme").toggleClass("hide");
+    }); 
 });

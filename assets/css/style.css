@@ -45,6 +45,10 @@ header h1 {
     font-size: 23px;
 }
 
+#hamburger {
+    cursor: pointer;
+}
+
 .toggle-theme {
     position: absolute;
     background: var(--background);
