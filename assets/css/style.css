@@ -50,17 +50,13 @@ form {
 }
 
 .form-group #add-todo {
-    all: unset;
     cursor: pointer;
-    position: relative; 
-    top: 8px;
-    right: 50px;
-}
-
-.form-group #add-todo i {
-    font-size: 30px;
-    color: var(--light-black);
-    height: 30px;
+    margin-left: 15px;
+    background: var(--background);
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px rgba(255, 182, 193, 0.5);
 }
 /* End Header Section */
 
@@ -119,3 +115,43 @@ ul {
     color: var(--light-black);
 }
 /* End Main Section */
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+
+    /* Start Main Section */
+    .form-group button {
+        margin-top: 20px;
+    }
+    /* End Main Section */
+}
+
+@media only screen and (max-width: 500px) {
+
+    /* Start Header Section */
+    header h1 {
+        font-size: 20px;
+    }
+    /* End Header Section */
+
+    /* Start Main Section */
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form-group input {
+        width: 350px;
+    }
+
+    .form-group button {
+        margin-top: 20px;
+    }
+
+    .list {
+        margin: 18px 0;
+    }
+    /* End Main Section */
+}
