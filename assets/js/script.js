@@ -19,22 +19,15 @@ $(document).ready(function() {
     //Function to append the todo list 
     const appendTodo = (todo) => {
 
-        //Create element
-        const parentElement = $(`<div class="list"></div>`);
-        parentElement.attr("data-name", todo);
-
         //Create the card for todo list
-        const todoListItem = $(`<li><p class="list-todo">${todo}</p><div class="icons">
+        const todoListItem = $(`<div class="list" data-id=${todo}><li><p class="list-todo">${todo}</p><div class="icons">
             <button class="edit"><i class="fa-solid fa-pen-to-square edit-delete"></i></button>
             <button class="delete"><i class="fa-solid fa-trash-can edit-delete"></i></button>
-            </div></li>`
+            </div></li></div>`
         );
 
-        //Append the created element to the ul element
-        parentElement.append(todoListItem);
-
         //Append the parentElement of the todo to the ul element
-        ulElement.append(parentElement);
+        ulElement.append(todoListItem);
     };
 
     //Function that will display todos from local storage 
